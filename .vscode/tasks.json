@@ -1,0 +1,79 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "echo",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && echo Hello"
+		},
+		{
+			"label": "CMake: build",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake --build build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$gcc"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "CMake: configure",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake -S . -B build -G \"NMake Makefiles\"",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "CMake: configure (USM)",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake -S . -B build -G \"NMake Makefiles\" -DUSM=1",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Build simple-add-usm",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake -S . -B build -G \"NMake Makefiles\" -DUSM=1 && cmake --build build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$gcc"],
+			"group": "build"
+		},
+		{
+			"label": "Build demand-paging-test",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake -S . -B build -G \"NMake Makefiles\" && cmake --build build --target demand-paging-test",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$gcc"],
+			"group": "build"
+		},
+		{
+			"label": "Build gpu-capability-query",
+			"type": "shell",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && cmake -S . -B build -G \"NMake Makefiles\" && cmake --build build --target gpu-capability-query",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$gcc"],
+			"group": "build"
+		},
+		{
+			"label": "all",
+			"command": "call \"C:\\Program Files (x86)\\Intel\\oneAPI\\setvars.bat\" && powershell -Command \"$val=Test-Path -Path 'build'; if($val -ne $true) {New-Item -ItemType directory -Path 'build'}; cmake  -S . -B 'build' -G 'NMake Makefiles'; cd build; nmake all\"",
+			"type": "shell",
+			"options": {
+				"cwd": "c:/working/oneapi/simple-add/simple-add"
+			}
+		}
+	]
+}
