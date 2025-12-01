@@ -1,61 +1,9 @@
-# Build directories
-build/
-out/
-bin/
-lib/
-
-# CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-*.cmake
-!CMakeLists.txt
-
-# Compiled binaries
-*.exe
-*.out
-*.app
-*.o
-*.obj
-*.lib
-*.a
-*.so
-*.dylib
-*.dll
-
-# VS Code
-.vscode/*
-!.vscode/tasks.json
-!.vscode/launch.json
-*.code-workspace
-
-# Visual Studio
-.vs/
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-*.sln
-*.suo
-*.user
-
-# Intel oneAPI
-*.mk
-*.d
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-*.swp
-*~
-
-# Documentation build
-docs/_build/
+model/
+venv/
+openvino/
+openvino.genai/
+openvino_genai_windows_*/
+*.zip
+__pycache__/
+*.pyc
+custom_gpu_op_tutorial/
